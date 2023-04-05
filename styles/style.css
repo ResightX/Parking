@@ -1,0 +1,66 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+  background: #232634;
+}
+
+header {
+	overflow: hidden;
+	background: #292c3c;
+	padding: 20px 10px;
+}
+
+.welcome {
+	color: #eebebe;
+	text-decoration: none;
+}
+
+/* Стиль ссылок заголовка */
+header a {
+  float: left;
+  color: #c6d0f5;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+/* Стиль ссылки логотипа */
+header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+  margin-left: 5%;
+}
+
+/* Изменение цвета фона при наведении мыши */
+header a:hover {
+  background-color: #8caaee;
+  color: black;
+}
+
+/* Разместить секцию ссылок справа */
+.header-right {
+  float: right;
+  margin-right: 5%;
+}
+
+.header-right a {
+	margin-right: 10px;
+}
+
+/* Добавление медиа-запросов для отзывчивости - когда экран имеет ширину 500px или меньше, складывать ссылки друг на друга */
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .header-right {
+    float: none;
+  }
+}

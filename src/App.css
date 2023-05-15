@@ -1,0 +1,107 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.header {
+	background-color: #414559;
+	color: white;
+	height: 85px;
+}
+
+
+.header a {
+	vertical-align: middle;
+	font-size: 18px;
+	color: #85c1dc;
+}
+
+.header a:hover {
+	color: white;
+}
+
+.logo {
+	width: 4.5rem;
+}
+
+.footer {
+	background-color: #414559;
+	width: 100%;
+	padding: 25px;
+	color: #85c1dc;
+}
+
+.footer .row {
+	text-align: center;
+}
+
+.footer .socialmedia > p {
+	cursor: pointer;
+	transition: 200ms ease-in-out;
+	font-size: 24px;
+}
+
+.footer .socialmedia {
+	width: 100%;
+}
+
+.footer .smicons {
+	display: flex;
+	font-size: 24px;
+	padding-top: 1rem;
+	width: 100%;
+	transition: 200ms ease-in-out;
+}
+
+.footer .smicons path:hover {
+	cursor: pointer;
+	color: white;
+}
+
+.header .headericons {
+	font-size: 24px;
+	vertical-align: middle;
+	margin-left: 0.5rem;
+}
+
+.header .headericontext {
+	font-size: 18px;
+}
+
+.signinform {
+	position: absolute;
+}

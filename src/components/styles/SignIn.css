@@ -58,5 +58,31 @@ section * {
 }
 
 
+.loginicons {
+	width: 100%;
+	text-align: center;
+	color: white;
+}
 
-/* Home.js */
+.loginicons > .loginicon {
+	margin-left: 10px;
+	margin-right: 10px;
+	color: white;
+	padding-bottom: 1rem;
+	font-size: 32px;
+}
+
+.smalltext {
+	display: flex;
+	justify-content: center;
+}
+
+.loginicon path {
+	color: #292c3c;
+	transition: 200ms ease-in-out;
+}
+
+.loginicon path:hover {
+	cursor: pointer;
+	color: white;
+}

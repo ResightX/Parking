@@ -1,5 +1,7 @@
-import './styles/SignIn.css'
-import SignupLogo from '../images/logosignup.svg'
+import './styles/SignIn.css';
+import SignupLogo from '../images/logosignup.svg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' 
+import { faGoogle, faVk } from '@fortawesome/free-brands-svg-icons' 
 
 function SignIn(){
 	return (
@@ -23,27 +25,31 @@ function SignIn(){
                     <span class="h1 fw-bold mb-0"><img className="signuplogo" src={SignupLogo} /></span>
                   </div>
 
-                  <h5 class="fw-normal mb-3 pb-3" >Sign into your account</h5>
+                  <h5 class="fw-normal mb-3 pb-3 text-center" >Войдите в ваш аккаунт</h5>
 
                   <div class="form-outline mb-4">
                     <input type="email" id="form2Example17" class="form-control form-control-lg" />
-                    <label class="form-label" for="form2Example17">Email address</label>
+                    <label class="form-label" for="form2Example17">E-mail адрес</label>
                   </div>
 
                   <div class="form-outline mb-4">
                     <input type="password" id="form2Example27" class="form-control form-control-lg" />
-                    <label class="form-label" for="form2Example27">Password</label>
+                    <label class="form-label" for="form2Example27">Пароль</label>
                   </div>
 
                   <div class="pt-1 mb-4">
-                    <button class="btn btn-dark btn-lg btn-block" type="button">Login</button>
+                    <button class="btn btn-dark btn-lg btn-block" type="button">Вход</button>
                   </div>
 
-                  <a class="small text-muted" href="#!">Forgot password?</a>
-                  <p class="mb-5 pb-lg-2" >Don't have an account? <a href="#!"
-                      >Register here</a></p>
-                  <a href="#!" class="small text-muted">Terms of use.</a>
-                  <a href="#!" class="small text-muted">Privacy policy</a>
+                  <p class="smalltext text-muted" href="#!">или</p>
+				  <div class="loginicons">
+					<FontAwesomeIcon className="loginicon" icon={faVk} />
+					<FontAwesomeIcon className="loginicon" icon={faGoogle} />
+				  </div>
+
+                  <a class="small smalltext text-muted" href="#!">Забыли пароль?</a>
+				  <p class="mb-5 pb-lg-2 text-center" >Не имеете аккаунта? <a href="#!"
+                      >Зарегистрироваться</a></p>
                 </form>
 
               </div>

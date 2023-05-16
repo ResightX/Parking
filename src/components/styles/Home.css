@@ -8,4 +8,44 @@ main {
 	box-shadow: 0px 0px 5px 1px #292c3c;
 	background-color: #232634;
 	color: white;
+	border-radius: 5px;
+}
+
+#places {
+	background-color: #292c3c;
+	color: #c6d0f5;
+	border: none;
+}
+
+#date {
+	background-color: #292c3c;
+	color: #c6d0f5;
+	border: none;
+}
+
+.lot {
+	height: 2.5rem;
+	width: 2.5rem;
+	margin-right: 0.5rem;
+	border-radius: 5px;
+	background-color: #303446;
+	border: none;
+	transition: 200ms ease-in-out;
+}
+
+.lot:hover{
+	background-color: white;
+}
+
+
+.lots {
+	margin-top: 1rem;
+	width: 100%;
+	background-color: #232634; 
+	border-radius: 5px;
+	padding: 1rem;
+}
+
+.activebtn {
+	background-color: white;
 }

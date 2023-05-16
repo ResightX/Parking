@@ -12,11 +12,11 @@ function Header(){
 		  </Navbar.Brand>
 
           <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/">Главная</Nav.Link>
           </Nav>
 
           <Nav className="me-right">
-            <Nav.Link href="/signup" className="headericontext">Sign In
+            <Nav.Link href="/signup" className="headericontext">Вход
 				<FontAwesomeIcon className="headericons" icon={ faRightToBracket } />
 			</Nav.Link>
           </Nav>

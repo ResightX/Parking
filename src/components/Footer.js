@@ -2,7 +2,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' 
-import { faTwitter, faFacebook, faVk, faInstagram } from '@fortawesome/free-brands-svg-icons' 
+import { faTwitter, faVk, faTelegram } from '@fortawesome/free-brands-svg-icons' 
 
 function Footer(){
 	return (
@@ -10,11 +10,10 @@ function Footer(){
 			<Container>
 				<Row>
 					<Col className="socialmedia">
-						<p>Social media</p>
+						<p>Социальные сети</p>
 						<FontAwesomeIcon className="smicons" icon={faTwitter}/>
 						<FontAwesomeIcon className="smicons" icon={faVk}/>
-						<FontAwesomeIcon className="smicons" icon={faFacebook}/>
-						<FontAwesomeIcon className="smicons" icon={faInstagram}/>
+						<FontAwesomeIcon className="smicons" icon={faTelegram}/>
 					</Col>
 					<Col>
 						<p>Hello wolrd</p>

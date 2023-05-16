@@ -10,9 +10,10 @@
 	overflow: hidden;
 }
 
-.card {
+.customcard {
 	background-color: #414559;
 	overflow: hidden;
+	border-radius: 5px;
 }
 
 .card-body {

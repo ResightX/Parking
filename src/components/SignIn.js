@@ -9,7 +9,7 @@ function SignIn(){
   <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col col-xl-10">
-        <div class="card">
+        <div class="customcard">
           <div class="row g-0">
             <div class="imgcontainer col-md-6 col-lg-5 d-none d-md-block">
               <img src={require('../images/cars-frappe.png')}

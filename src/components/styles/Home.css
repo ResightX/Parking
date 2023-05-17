@@ -31,6 +31,7 @@ main {
 	background-color: #303446;
 	border: none;
 	transition: 200ms ease-in-out;
+	margin: 0.25rem;
 }
 
 .lot:hover{

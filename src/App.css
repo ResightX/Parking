@@ -117,3 +117,7 @@
 .container {
 	border: none;
 }
+
+.header a {
+	text-decoration: none;
+}

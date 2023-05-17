@@ -11,13 +11,17 @@
 }
 
 .customcard {
-	background-color: #414559;
+   	background-color: #414559;
 	overflow: hidden;
 	border-radius: 5px;
 }
 
 .card-body {
 	background-color: #414559;
+}
+
+.card-body form {
+	align-items: center;
 }
 
 #form2Example17 {

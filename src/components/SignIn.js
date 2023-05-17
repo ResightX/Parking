@@ -2,6 +2,7 @@ import './styles/SignIn.css';
 import SignupLogo from '../images/logosignup.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' 
 import { faGoogle, faVk } from '@fortawesome/free-brands-svg-icons' 
+import { Link } from 'react-router-dom';
 
 function SignIn(){
 	return (
@@ -48,8 +49,8 @@ function SignIn(){
 				  </div>
 
                   <a class="small smalltext text-muted" href="#!">Забыли пароль?</a>
-				  <p class="mb-5 pb-lg-2 text-center" >Не имеете аккаунта? <a href="#!"
-                      >Зарегистрироваться</a></p>
+				  <p class="mb-5 pb-lg-2 text-center" >Не имеете аккаунта? <Link to="/register"
+                      >Зарегистрироваться</Link></p>
                 </form>
 
               </div>

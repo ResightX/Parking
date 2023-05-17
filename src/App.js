@@ -9,6 +9,7 @@ import Header from './components/Header.js';
 import Footer from './components/Footer.js';
 import SingIn from './components/SignIn.js';
 import Home from './components/Home.js';
+import Register from './components/Register.js';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
 					<Routes>
 					  <Route path='/' index element={ <Home /> }></Route>
 					  <Route path='signup' element={ <SingIn className="signinform" /> }></Route>
+					  <Route path='register' element={ <Register className="registerform" /> }></Route>
 					</Routes>
 			  </Container>
 		  </main>

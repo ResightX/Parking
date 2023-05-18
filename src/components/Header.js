@@ -16,9 +16,11 @@ function Header(){
 
           <Nav className="me-auto">
             <Link to="/">Главная</Link>
+            <Link to="/test">Test</Link>
           </Nav>
 
           <Nav className="me-right">
+            <Link to="/shoppingcart"><FontAwesomeIcon className="cartshopping" icon={ faCartShopping } /></Link>
             <Link to="/signup" className="headericontext">Вход
 				<FontAwesomeIcon className="headericons" icon={ faRightToBracket } />
 			</Link>

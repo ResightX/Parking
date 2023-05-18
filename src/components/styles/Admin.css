@@ -1,0 +1,56 @@
+
+.admincustomcard {
+	background-color: #414559;
+	width: 25rem;
+	border-radius: 5px;
+	height: 25rem;
+}
+
+.admincustomcard * {
+	width: 100%;
+}
+
+.admincustomcard label {
+	color: #c6d0f5;
+}
+
+#adminpassword {
+	background-color: #292c3c;
+	border: none;
+	color: #eebebe;
+}
+
+#adminlogin {
+	background-color: #292c3c;
+	color: #eebebe;
+	border: none;
+}
+
+
+.adminformbtn {
+	height: 3rem;
+	bottom: 0;
+}
+
+.adminform {
+	align-items: center;
+	height: 90vh;
+}
+
+.adminform h1 {
+	text-align: center;
+	color: #c6d0f5;
+}
+
+.adminform .adminformbtn {
+	color: white;
+	background-color: #292c3c;
+	border: none;
+	transition: 200ms ease-in-out;
+	border-radius: 5px;
+}
+
+.adminform .adminformbtn:hover {
+	background-color: white;
+	color: black;
+}

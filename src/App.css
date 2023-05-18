@@ -109,15 +109,29 @@
 	color: white;
 }
 
-.footerItself {
-	width: 100%;
-	height: 100%;
-}
-
 .container {
 	border: none;
 }
 
 .header a {
 	text-decoration: none;
+}
+
+.navbar-nav > a {
+	margin-left: 10px;
+}
+
+.ptext {
+	color: white;
+}
+
+.bookbtn {
+	display: flex;
+	float: right;
+	margin-top: 1rem;
+}
+
+.cardtypeicon {
+	font-size: 32px;
+	margin-right: 0.5rem;
 }

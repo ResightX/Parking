@@ -1,10 +1,17 @@
 import './styles/SignIn.css';
+import { useRef } from  'react';
 import SignupLogo from '../images/logosignup.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' 
 import { faGoogle, faVk } from '@fortawesome/free-brands-svg-icons' 
 import { Link } from 'react-router-dom';;
 
 function Register(){
+	const userRef = useRef(null);
+
+	function onButtonClickFocus () {
+		userRef.current.focus();
+	}
+
 	return (
 <section class="">
   <div class="container h-100">
@@ -25,7 +32,7 @@ function Register(){
                   <h5 class="fw-normal mb-3 pb-3 text-center" >Регистрация</h5>
 
                   <div class="form-outline">
-                    <input type="email" id="form2Example17" class="form-control form-control-lg" />
+                    <input type="email" ref={userRef} id="form2Example17" class="form-control form-control-lg" />
                     <label class="form-label" for="form2Example17">E-mail адрес</label>
                     <input type="text" id="form2Example17" class="form-control form-control-lg mt-2" />
                     <label class="form-label" for="form2Example17">Логин</label>
@@ -40,6 +47,7 @@ function Register(){
 
                   <div class="pt-1 mb-4">
                     <button class="btn btn-dark btn-lg btn-block" type="button">Зарегистрироваться</button>
+                    <button onClick={onButtonClickFocus} class="btn btn-dark btn-lg btn-block" type="button">Focus</button>
                   </div>
 
 				  <p class="mb-5 pb-lg-2 text-center" >Уже имеете аккаунт? <Link to="/signup"

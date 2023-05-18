@@ -28,6 +28,166 @@ function Home() {
 			</div>
 
 			<div className="lots">
+				<CustomButton className="lot1" />
+				<CustomButton className="lot2" />
+				<CustomButton className="lot3" />
+				<CustomButton className="lot4" />
+				<CustomButton className="lot5" />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
+				<CustomButton />
 				<CustomButton />
 				<CustomButton />
 				<CustomButton />
@@ -51,6 +211,7 @@ function Home() {
 				<CustomButton />
 				<CustomButton />
 			</div>
+			<button class="bookbtn btn btn-dark btn-lg btn-block">Забронировать</button>
 		</>
 	);
 }

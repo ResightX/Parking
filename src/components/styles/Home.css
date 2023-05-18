@@ -11,6 +11,14 @@ main {
 	border-radius: 5px;
 }
 
+.homeblock > select {
+	margin-right: 1rem;
+}
+
+.homeblock > label {
+	margin-right: 0.5rem;
+}
+
 #places {
 	background-color: #292c3c;
 	color: #c6d0f5;
@@ -40,6 +48,9 @@ main {
 
 
 .lots {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 	margin-top: 1rem;
 	width: 100%;
 	background-color: #232634; 
@@ -49,4 +60,13 @@ main {
 
 .activebtn {
 	background-color: white;
+}
+
+.inactivebtn {
+	background-color: #212330;
+}
+
+.innercard {
+	border: 1px solid #626880;
+	padding: 1rem;
 }

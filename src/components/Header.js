@@ -3,6 +3,26 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee, faCartShopping, faRightToBracket } from '@fortawesome/free-solid-svg-icons' 
 import Logo from '../images/somenewlogo.svg'
 import {Link} from 'react-router-dom';
+import Cookie from 'js-cookie';
+
+function isUserLoggedIn() {
+	const name = Cookie.get('AuthName');
+	console.log(name);
+
+	if (name == undefined){
+		return (
+			<Link to="/signup" className="headericontext">Вход
+				<FontAwesomeIcon className="headericons" icon={ faRightToBracket } />
+			</Link>
+		)
+	}
+
+	return (
+		<>
+			<a class='authname'>{name}</a>
+		</>
+	);
+}
 
 function Header(){
 	return (
@@ -21,9 +41,8 @@ function Header(){
 
           <Nav className="me-right">
             <Link to="/shoppingcart"><FontAwesomeIcon className="cartshopping" icon={ faCartShopping } /></Link>
-            <Link to="/signup" className="headericontext">Вход
-				<FontAwesomeIcon className="headericons" icon={ faRightToBracket } />
-			</Link>
+			
+			{isUserLoggedIn()}
           </Nav>
 
         </Container>

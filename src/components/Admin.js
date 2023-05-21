@@ -22,7 +22,7 @@ function Admin (){
 	return (
 		<form action="" className="adminform d-flex justify-content-center">
 			<div className="admincustomcard p-4">
-				<h1>ADMIN PANEL LOGIN FORM</h1>
+				<h1>ADMIN PANEL</h1>
 				<label for="adminlogin">Login</label>
 				<input type="text" id="adminlogin" className="form form-control" />
 				<label for="adminpassword" className="mt-2">Password</label>

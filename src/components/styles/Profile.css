@@ -1,0 +1,28 @@
+
+#profile {
+	display: flex;
+	
+}
+
+.profile-left {
+	height: 85vh;
+	width: 25%;
+	background-color: #292c3c;
+	text-align: center;
+}
+
+.profile-left h3 {
+	text-align: center;
+	color: white;
+}
+
+.profile-left button {
+	padding: 20px;
+	margin-top: 20px;
+}
+
+.profile-right {
+	height: 100vh;
+	width: 75%;
+	background-color: #232634;
+}

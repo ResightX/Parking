@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import { render } from 'react-dom';
+import Cookies from 'js-cookie';
 
 import logo from './logo.svg';
 import './App.css';
@@ -28,12 +29,24 @@ function HeaderCondition(){
 function FooterCondition(){
 	if (window.location.pathname !== "/admin" && window.location.pathname !== "/dashboard")
 		return (
-		  <div class="footer">
+		  <div className="footer">
 			  <Footer />
 		  </div>
 		);
 
 	return null;
+}
+
+function AccountCondition(){
+	if (Cookies.get("AuthName") != undefined){
+		window.location.href = "/signup";
+	}
+
+	return (
+		<div className="account">
+			<Account />
+		</div>
+	);
 }
 
 function App() {
@@ -51,7 +64,7 @@ function App() {
 					  <Route path='register' element={ <Register className="registerform" /> }></Route>
 					  <Route path='test' element={ <Test /> }></Route>
 					  <Route path='shoppingcart' element={ <ShoppingCart /> }></Route>
-					  <Route path='settings' element={ <Account /> }></Route>
+					  <Route path='profile' element={ <AccountCondition /> }></Route>	
 					  <Route path='admin' element={ <Admin /> }></Route>
 					</Routes>
 			  </Container>

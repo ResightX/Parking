@@ -91,3 +91,7 @@ section * {
 	cursor: pointer;
 	color: white;
 }
+
+.hiddenmessage {
+	display: none;
+}

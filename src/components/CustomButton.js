@@ -15,8 +15,7 @@ class CustomButton extends Component {
 
     render() {
         return (
-			<button className={`lot ${this.state.active ? 'activebtn' : null}`} onClick={this.toggleClass.bind(this)}>{this.props.text}</button>
-                
+			<button className={`lot${this.state.active ? ' activebtn' : ''}`} onClick={this.toggleClass.bind(this)}>{this.props.text}</button>
         )
   }
 }

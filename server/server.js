@@ -2,6 +2,8 @@
 const express = require('express');
 const cors = require('cors');
 const sqlite3 = require('sqlite3').verbose();
+const fs = require('fs');
+const {resolve} = require('path')
 
 const app = express();
 app.use(cors());
@@ -63,6 +65,40 @@ app.post('/register', (req, res) => {
 
 })
 	
+app.post('/api/images', (req, res) => {
+	const username = req.body.username;
+
+    // Check if the file with such username.png exists
+    if (fs.existsSync(`./${username}.png`)) {
+        res.sendFile(`./${username}.png`, {root: '.'});
+    } else {
+        res.send({ status: 'File not found' });
+    }
+})
+
+app.post('/api/parking', (req, res) => {
+	// Select all rows from the database credentials from table PARKING
+	db.all(`SELECT address FROM PARKING`, (err, rows) => {
+		res.send(rows);
+	});
+});
+
+app.post('/api/getdate', (req, res) => {
+	const date = new Date();
+	const year = date.getFullYear();
+	let month = date.getMonth() + 1;
+	let day = date.getDate();
+
+	if(month < 10){
+		month = '0' + month;
+	}
+	if(day < 10){
+		day = '0' + day;
+	}
+
+	res.send({date: year + '-' + month + '-' + day});
+});
+
 app.listen(port, () => {
 	console.log(`App listening on port ${port}`);
 })

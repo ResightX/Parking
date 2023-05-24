@@ -1,13 +1,13 @@
 import { Container, Navbar, Nav } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' 
-import { faCoffee, faCartShopping, faRightToBracket } from '@fortawesome/free-solid-svg-icons' 
+import { faCoffee, faCartShopping, faRightToBracket, faBell } from '@fortawesome/free-solid-svg-icons' 
 import Logo from '../images/somenewlogo.svg'
 import {Link} from 'react-router-dom';
 import Cookie from 'js-cookie';
 
 function isUserLoggedIn() {
 	const name = Cookie.get('AuthName');
-	console.log(name);
+	console.log('Cookie name ' + `'${name}'`);
 
 	if (name == undefined){
 		return (
@@ -19,7 +19,7 @@ function isUserLoggedIn() {
 
 	return (
 		<>
-			<a class='authname'>{name}</a>
+			<Link to='/profile' class='authname'>{name}</Link>
 		</>
 	);
 }
@@ -36,13 +36,14 @@ function Header(){
 
           <Nav className="me-auto">
             <Link to="/">Главная</Link>
-            <Link to="/test">Test</Link>
+            <Link to="/map">Карта</Link>
           </Nav>
 
           <Nav className="me-right">
             <Link to="/shoppingcart"><FontAwesomeIcon className="cartshopping" icon={ faCartShopping } /></Link>
 			
 			{isUserLoggedIn()}
+            <Link to=""><FontAwesomeIcon icon={ faBell } /></Link>
           </Nav>
 
         </Container>

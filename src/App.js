@@ -16,6 +16,8 @@ import Test from './components/Test.js';
 import ShoppingCart from './components/ShoppingCart.js';
 import Account from './components/Account.js';
 import Admin from './components/Admin.js';
+import Map from './components/Map.js';
+
 
 function HeaderCondition(){
 	if (window.location.pathname !== "/admin" && window.location.pathname !== "/dashboard")
@@ -38,7 +40,7 @@ function FooterCondition(){
 }
 
 function AccountCondition(){
-	if (Cookies.get("AuthName") != undefined){
+	if (Cookies.get("AuthName") == undefined){
 		window.location.href = "/signup";
 	}
 
@@ -66,6 +68,7 @@ function App() {
 					  <Route path='shoppingcart' element={ <ShoppingCart /> }></Route>
 					  <Route path='profile' element={ <AccountCondition /> }></Route>	
 					  <Route path='admin' element={ <Admin /> }></Route>
+					  <Route path='map' element={ <Map /> }></Route>
 					</Routes>
 			  </Container>
 		  </main>

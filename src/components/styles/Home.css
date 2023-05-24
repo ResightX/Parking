@@ -46,16 +46,16 @@ main {
 	background-color: white;
 }
 
-
 .lots {
+	margin-top: 1rem;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	margin-top: 1rem;
 	width: 100%;
+	height: 100%;
+	padding: 1rem;
 	background-color: #232634; 
 	border-radius: 5px;
-	padding: 1rem;
 }
 
 .activebtn {
@@ -69,4 +69,8 @@ main {
 .innercard {
 	border: 1px solid #626880;
 	padding: 1rem;
+}
+
+.greeting {
+	color: #c6d0f5;
 }

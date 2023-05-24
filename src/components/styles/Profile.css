@@ -13,7 +13,7 @@
 
 .profile-left h3 {
 	text-align: center;
-	color: white;
+	color: #c6d0f5;
 }
 
 .profile-left button {
@@ -22,7 +22,12 @@
 }
 
 .profile-right {
-	height: 100vh;
+	height: 85vh;
 	width: 75%;
 	background-color: #232634;
+	color: #c6d0f5;
+}
+
+.nav-tabs{
+	border-color: #414559;
 }

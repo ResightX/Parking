@@ -125,10 +125,15 @@
 	color: white;
 }
 
-.bookbtn {
+.bookbtn.btn {
 	display: flex;
 	float: right;
 	margin-top: 1rem;
+	background-color: #babbf1;
+}
+
+.bookbtn.btn:hover {
+	background-color: #99d1db;
 }
 
 .cardtypeicon {

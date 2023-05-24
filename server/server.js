@@ -19,6 +19,7 @@ app.use(express.json());
 const port = 3001;
 
 const db = new sqlite3.Database('./credentials.db');
+const lotsdb = new sqlite3.Database('./database.db');
 
 app.get('/', (req, res) => {
 	res.send('Hello World!');
@@ -78,7 +79,7 @@ app.post('/api/images', (req, res) => {
 
 app.post('/api/parking', (req, res) => {
 	// Select all rows from the database credentials from table PARKING
-	db.all(`SELECT address FROM PARKING`, (err, rows) => {
+	db.all(`SELECT address FROM PARKING_LOT`, (err, rows) => {
 		res.send(rows);
 	});
 });
@@ -98,6 +99,12 @@ app.post('/api/getdate', (req, res) => {
 
 	res.send({date: year + '-' + month + '-' + day});
 });
+
+app.post('/api/getlots', (req, res) => {
+	lotsdb.all(`SELECT * FROM PARKING_LOT`, (err, rows) => {
+		res.send(rows);
+	});
+})
 
 app.listen(port, () => {
 	console.log(`App listening on port ${port}`);

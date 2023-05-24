@@ -4,7 +4,8 @@ class CustomButton extends Component {
 	constructor(props) {
         super(props);
         this.state = {
-            active: false,
+            active: props.active,
+			available: props.available 
         };
     }
 
@@ -15,7 +16,7 @@ class CustomButton extends Component {
 
     render() {
         return (
-			<button className={`lot${this.state.active ? ' activebtn' : ''}`} onClick={this.toggleClass.bind(this)}>{this.props.text}</button>
+			<button className={`lot${this.state.active ? ' activebtn' : (this.state.available ? '' : ' inactivebtn')}`} onClick={this.toggleClass.bind(this)} disabled={this.state.available ? false : true}>{this.props.text}</button>
         )
   }
 }

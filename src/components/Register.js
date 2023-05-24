@@ -26,10 +26,6 @@ function Register(){
 		})
 	}
 
-	function onButtonClickFocus () {
-		userRef.current.focus();
-	}
-
 	return (
 <section class="">
   <div class="container h-100">
@@ -65,7 +61,6 @@ function Register(){
 
                   <div class="pt-1 mb-4">
                     <button type="submit" class="btn btn-dark btn-lg btn-block">Зарегистрироваться</button>
-                    <button onClick={onButtonClickFocus} class="btn btn-dark btn-lg btn-block" type="button">Focus</button>
                   </div>
 
 				  <p class="mb-5 pb-lg-2 text-center" >Уже имеете аккаунт? <Link to="/signup"

@@ -1,6 +1,6 @@
 import { Container, Navbar, Nav } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' 
-import { faCoffee, faCartShopping, faRightToBracket, faBell } from '@fortawesome/free-solid-svg-icons' 
+import { faCoffee, faCartShopping, faRightToBracket, faBell, faUser } from '@fortawesome/free-solid-svg-icons' 
 import Logo from '../images/somenewlogo.svg'
 import {Link} from 'react-router-dom';
 import Cookie from 'js-cookie';
@@ -19,7 +19,7 @@ function isUserLoggedIn() {
 
 	return (
 		<>
-			<Link to='/profile' class='authname'>{name}</Link>
+			<Link to='/profile' class='authname'>{name}<FontAwesomeIcon icon={faUser} className="ms-1" /></Link>
 		</>
 	);
 }
@@ -35,15 +35,15 @@ function Header(){
 		  </Navbar.Brand>
 
           <Nav className="me-auto">
-            <Link to="/">Главная</Link>
-            <Link to="/map">Карта</Link>
+            <Link to="/" className="ms-1">Главная</Link>
+            <Link to="/map" className="ms-3">Карта</Link>
           </Nav>
 
           <Nav className="me-right">
-            <Link to="/shoppingcart"><FontAwesomeIcon className="cartshopping" icon={ faCartShopping } /></Link>
+            <Link to=""><FontAwesomeIcon icon={ faBell } className="me-2" /></Link>
+            <Link to="/shoppingcart"><FontAwesomeIcon className="cartshopping" icon={ faCartShopping } className="me-2" /></Link>
 			
 			{isUserLoggedIn()}
-            <Link to=""><FontAwesomeIcon icon={ faBell } /></Link>
           </Nav>
 
         </Container>

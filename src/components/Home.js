@@ -10,6 +10,7 @@ function Home() {
 	const name = Cookies.get('AuthName');
 	const [places, setPlaces] = useState([]);
 	const [date, setDate] = useState();	
+	const [lots, setLots] = useState([]);
 
 	function handleClick(e){
 		setActive(!isActive);
@@ -23,10 +24,17 @@ function Home() {
 
 	}
 
+
+	useEffect(() => {
+		axios.post('http://localhost:3001/api/getlots', {
+		}).then(res => {
+			setLots(res.data);
+		})
+	}, []);
+
 	// useEffects
 	useEffect(() => {
 		axios.post('http://localhost:3001/api/getdate', {
-
 		}).then(res => {
 			setDate(res.data.date);
 		})
@@ -34,10 +42,8 @@ function Home() {
 
 	useEffect(() => {
 		axios.post('http://localhost:3001/api/parking', {
-
 		}).then(res => {
 			setPlaces(res.data);
-			console.log(res.data);
 		})
 	}, []);
 
@@ -54,197 +60,19 @@ function Home() {
 					))}
 				</select>
 				<label for="date">Выберите дату</label>
-				<input type="date" value={date} onChange={handleDateChange} id="date" name="date" class="form-control-lg">
-				</input>
+				<input type="date" value={date} onChange={handleDateChange} id="date" name="date" class="form-control-lg" />
+				<label for="available" id="availablecheckboxtext">Только доступные</label>
+				<input type="checkbox" id="availablecheckbox" name="available" class="form-check-input" />
 			</div>
 
 		<div class="lots-container">
 			<div className="lots">
-				<CustomButton className="lot1" />
-				<CustomButton className="lot2" />
-				<CustomButton className="lot3" />
-				<CustomButton className="lot4" />
-				<CustomButton className="lot5" />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
-				<CustomButton />
+				{lots.map(lot => (
+					lot.isactive ? <CustomButton available={true} text={lot.number} /> : <CustomButton available={false} text={lot.number} />
+				))}
 			</div>
 		</div>
-			<button class="bookbtn btn btn-dark btn-lg btn-block">Забронировать</button>
+		<button class="bookbtn btn btn-lg btn-block">Забронировать</button>
 		</>
 	);
 }

@@ -31,6 +31,29 @@ main {
 	border: none;
 }
 
+#availablecheckbox{
+	vertical-align: middle;
+	background-color: #292c3c;
+	cursor: pointer;
+	transition: 200ms ease-in-out;
+	width: 20px;
+	height: 20px;
+}
+
+#availablecheckbox:hover {
+	background-color: white;
+}
+
+#availablecheckboxtext {
+	vertical-align: middle;
+}
+
+@media (min-width: 1200px) {
+	#availablecheckboxtext {
+		padding-left: 1rem;
+	}
+}
+
 .lot {
 	height: 2.5rem;
 	width: 2.5rem;
@@ -40,10 +63,12 @@ main {
 	border: none;
 	transition: 200ms ease-in-out;
 	margin: 0.25rem;
+	color: #c6d0f5;
 }
 
 .lot:hover{
 	background-color: white;
+	color: #232634;
 }
 
 .lots {
@@ -60,10 +85,17 @@ main {
 
 .activebtn {
 	background-color: white;
+	color: #232634;
 }
 
 .inactivebtn {
-	background-color: #212330;
+	color: #414559;
+	background-color: #292c3c;
+}
+
+.inactivebtn:hover {
+	color: #414559;
+	background-color: #292c3c;
 }
 
 .innercard {

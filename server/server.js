@@ -106,6 +106,86 @@ app.post('/api/getlots', (req, res) => {
 	});
 })
 
+app.post('/api/book', (req, res) => {
+	const selectedLots = req.body.selectedLots;
+	let isDataValid = true;
+
+	if (selectedLots.length === 0) {
+		isDataValid = false;
+	}
+
+	for (let i = 0; i < selectedLots.length && isDataValid; i++) {
+		if (!selectedLots[i].match(/^[A-Z0-9]+$/)) {
+			console.log('Invalid value ' + selectedLots[i]);
+			isDataValid = false;
+			break;
+		}
+	}
+
+	if (isDataValid) {
+		const sqldata = 'SELECT * FROM PARKING_LOT WHERE number IN (' + selectedLots.map(lot => `'${lot}'`).join(', ') + ')';
+		lotsdb.all(sqldata, (err, rows) => {
+			res.send({message: 'Success', data: rows});
+		})
+	} else {
+		res.send({message: 'Fail', data: []});
+	}
+});
+
+app.post('/api/payment', (req, res) => {
+	const name = req.body.name;
+	const selectedLots = req.body.selectedLots;
+	let isDataValid = true;
+
+	if (selectedLots.length === 0) {
+		isDataValid = false;
+	}
+
+	for (let i = 0; i < selectedLots.length && isDataValid; i++) {
+		if (!selectedLots[i].match(/^[A-Z0-9]+$/)) {
+			console.log('Invalid value ' + selectedLots[i]);
+			isDataValid = false;
+			break;
+		}
+	}
+
+	if (isDataValid) {
+		const sqldata = 'SELECT * FROM PARKING_LOT WHERE number IN (' + selectedLots.map(lot => `'${lot}'`).join(', ') + ')';
+		const sqldata2 = 'UPDATE PARKING_LOT SET isactive = false WHERE number IN (' + selectedLots.map(lot => `'${lot}'`).join(', ') + ')';
+		const sqldata3 = `INSERT INTO ORDERS (user_name, description, order_date) VALUES ('${name}', '${selectedLots.join(', ')}', '${new Date()}')`;
+		lotsdb.all(sqldata, (err, rows) => {
+			// check rows isactive column
+			for (let i = 0; i < rows.length; i++) {
+				if (!rows[i].isactive) {
+					res.send({message: 'Fail', data: []});
+					break;
+				}
+			}
+		})
+
+		// execute sqldata2
+		lotsdb.run(sqldata2, (err) => {
+		})
+
+		lotsdb.run(sqldata3, (err) => {
+		})
+
+		res.send({message: 'Success', data: []});
+	} else {
+		res.send({message: 'Fail', data: []});
+	}
+})
+
+app.post('/api/orders', (req, res) => {
+	const name = req.body.name;
+	console.log(name);
+
+	lotsdb.all(`SELECT * FROM ORDERS`, (err, rows) => {
+		console.log(rows);
+		res.send(rows);
+	})
+})
+
 app.listen(port, () => {
 	console.log(`App listening on port ${port}`);
 })

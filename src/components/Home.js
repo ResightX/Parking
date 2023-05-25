@@ -1,5 +1,5 @@
 import Container from 'react-bootstrap/Container';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './styles/Home.css';
 import CustomButton from './CustomButton.js';
 import Cookies from 'js-cookie';
@@ -11,9 +11,27 @@ function Home() {
 	const [places, setPlaces] = useState([]);
 	const [date, setDate] = useState();	
 	const [lots, setLots] = useState([]);
+	const [selectedLots, setSelectedLots] = useState([]);
+	const btnRef = useRef();
 
 	function handleClick(e){
 		setActive(!isActive);
+	}
+
+	function handleBook(e){
+		console.log(selectedLots);
+		if (selectedLots.length === 0){
+			alert("Please select at least one lot");
+		} else {
+			axios.post('http://localhost:3001/api/book', {
+				selectedLots: selectedLots,
+			}).then(res => {
+				console.log(res.data);
+			})
+			alert("OK");
+		}
+		sessionStorage.setItem('selectedLots', JSON.stringify(selectedLots));
+		window.location.href = '/checkout';
 	}
 
 	function handleDateChange(e){
@@ -22,6 +40,16 @@ function Home() {
 
 	function handleParkingOptions(e){
 
+	}
+
+	function handleChoice(e, lot) {
+		if(e.target.classList.contains('activebtn')){
+			e.target.classList.remove('activebtn');
+			setSelectedLots(selectedLots.filter(item => item !== lot.number));
+		} else {
+			e.target.classList.add('activebtn');
+			setSelectedLots([...selectedLots, lot.number]);
+		}
 	}
 
 
@@ -47,6 +75,19 @@ function Home() {
 		})
 	}, []);
 
+	function handleButtonClick(lot){
+		if (selectedLots.includes(lot)){
+			setSelectedLots(selectedLots.filter(item => item !== lot));
+		} else {
+			setSelectedLots([...selectedLots, lot]);
+		}
+
+	}
+
+	function getSomeLog(){
+		console.log(selectedLots);
+	}
+
 	return (
 		<>
 		    <div className="greeting">
@@ -68,11 +109,11 @@ function Home() {
 		<div class="lots-container">
 			<div className="lots">
 				{lots.map(lot => (
-					lot.isactive ? <CustomButton available={true} text={lot.number} /> : <CustomButton available={false} text={lot.number} />
+					lot.isactive ? <button className={`lot lot-available lot-${lot.number}`} onClick={(e) => handleChoice(e, lot)}>{lot.number}</button> : <button className="lot inactivebtn">{lot.number}</button>
 				))}
 			</div>
 		</div>
-		<button class="bookbtn btn btn-lg btn-block">Забронировать</button>
+		<button class="bookbtn btn btn-lg btn-block" onClick={handleBook}>Забронировать</button>
 		</>
 	);
 }

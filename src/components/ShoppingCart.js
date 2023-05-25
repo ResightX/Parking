@@ -1,8 +1,33 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' 
 import { faCcMastercard, faCcVisa } from '@fortawesome/free-brands-svg-icons' 
 
+function Item(e){
+  return (
+    <div class="card mb-3 mb-lg-0">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <div class="d-flex flex-row align-items-center">
+                <div class="ms-3">
+                  <h5>Парковочное место {e.title}</h5>
+                </div>
+              </div>
+              <div class="d-flex flex-row align-items-center">
+                <div style={{width: 80}}>
+                  <h5 class="mb-0">$$$</h5>
+                </div>
+                <a href="#!" style={{color: '#cecece'}}><i class="fas fa-trash-alt"></i></a>
+              </div>
+            </div>
+          </div>
+    </div>
+  );
+}
 
-function ShoppingCart(){
+function ShoppingCart(e){
+	function handleClick(){
+		console.log(e);
+	}
+
 	return (
     <section className="h-100 h-custom" style={{ backgroundColor: '#303446' }}>
       <div className="container py-5 h-100">
@@ -30,28 +55,7 @@ function ShoppingCart(){
                       </div>
                     </div>
                     <div id="cart-items">
-					  <div class="card mb-3 mb-lg-0">
-                  <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                      <div class="d-flex flex-row align-items-center">
-                        <div>
-                        </div>
-                        <div class="ms-3">
-                          <h5>Парковочное место 12A</h5>
-                        </div>
-                      </div>
-                      <div class="d-flex flex-row align-items-center">
-                        <div style={{width: 50}}>
-                          <h5 class="fw-normal mb-0">1</h5>
-                        </div>
-                        <div style={{width: 80}}>
-                          <h5 class="mb-0">$$$</h5>
-                        </div>
-                        <a href="#!" style={{color: '#cecece'}}><i class="fas fa-trash-alt"></i></a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+		              <button onClick={handleClick}></button>
                       {/* Cart items will be dynamically added here */}
                     </div>
                   </div>
@@ -94,6 +98,7 @@ function ShoppingCart(){
                             <input
                               type="text"
                               id="type-text"
+
                               className="form-control form-control-lg"
                               size="17"
                               placeholder="1234 5678 9012 3457"

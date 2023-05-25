@@ -41,7 +41,7 @@ function Header(){
 
           <Nav className="me-right">
             <Link to=""><FontAwesomeIcon icon={ faBell } className="me-2" /></Link>
-            <Link to="/shoppingcart"><FontAwesomeIcon className="cartshopping" icon={ faCartShopping } className="me-2" /></Link>
+            <Link to="/checkout"><FontAwesomeIcon className="cartshopping" icon={ faCartShopping } className="me-2" /></Link>
 			
 			{isUserLoggedIn()}
           </Nav>

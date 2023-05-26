@@ -1,6 +1,7 @@
 import './styles/Checkout.css';
 import Cookies from 'js-cookie';
 import axios from 'axios';
+import { useForm, Controller } from "react-hook-form";
 
 function Item(e) {
 	return (
@@ -72,7 +73,7 @@ function Checkout(){
                 <label htmlFor="card-number">Номер карты</label>
                 <input
                   id="card-number"
-                  type="text"
+                  type="number"
                   className="form-control"
                   placeholder="Номер карты"
                   aria-label="Card Holder"

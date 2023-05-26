@@ -55,7 +55,7 @@ function SignIn(){
                   <h5 className="fw-normal mb-3 pb-3 text-center" >Войдите в ваш аккаунт</h5>
 
                   <div className="form-outline mb-4">
-					<div className="hiddenmessage alert alert-danger" ref={message} role="alert">Login unsuccessful</div>
+					<div className="hiddenmessage alert alert-danger" ref={message} role="alert">Неправильное имя пользователя или пароль!</div>
                     <input type="text" name="username" id="form2Example17" className="form-control form-control-lg" />
                     <label className="form-label" htmlFor="form2Example17">E-mail адрес</label>
                   </div>

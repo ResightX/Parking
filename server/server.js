@@ -43,11 +43,17 @@ app.post('/validate', (req, res) => {
 	)
 })
 
-app.post('/register', (req, res) => {
+app.post('/api/register', (req, res) => {
+	const email = req.body.email;
 	const username = req.body.username;
 	const password = req.body.password;
 
-	console.log(`Registering ${username} with password ${password}`);
+	if (email == '' || username == '' || password == '') {
+		res.send({ registered: false });
+		return;
+	}
+
+	console.log(`Registering ${username} with email ${email} with password ${password}`);
 
 	db.all(`SELECT * FROM credentials WHERE username = '${username}'`, (err, rows) => {
 		if (rows.length > 0) {
@@ -149,10 +155,12 @@ app.post('/api/payment', (req, res) => {
 		}
 	}
 
+	const date = new Date();
+	const current_datetime = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
 	if (isDataValid) {
 		const sqldata = 'SELECT * FROM PARKING_LOT WHERE number IN (' + selectedLots.map(lot => `'${lot}'`).join(', ') + ')';
 		const sqldata2 = 'UPDATE PARKING_LOT SET isactive = false WHERE number IN (' + selectedLots.map(lot => `'${lot}'`).join(', ') + ')';
-		const sqldata3 = `INSERT INTO ORDERS (user_name, description, order_date) VALUES ('${name}', '${selectedLots.join(', ')}', '${new Date()}')`;
+		const sqldata3 = `INSERT INTO ORDERS (user_name, description, order_date) VALUES ('${name}', '${selectedLots.join(', ')}', '${current_datetime}')`;
 		lotsdb.all(sqldata, (err, rows) => {
 			// check rows isactive column
 			for (let i = 0; i < rows.length; i++) {
@@ -180,9 +188,53 @@ app.post('/api/orders', (req, res) => {
 	const name = req.body.name;
 	console.log(name);
 
-	lotsdb.all(`SELECT * FROM ORDERS`, (err, rows) => {
+	lotsdb.all(`SELECT * FROM ORDERS where user_name = '${name}'`, (err, rows) => {
 		console.log(rows);
 		res.send(rows);
+	})
+})
+
+app.post('/api/admin', (req, res) => {
+	const username = req.body.username;
+	const password = req.body.password;
+
+	if (username == '' || password == '') {
+		res.send({admin: false});
+	}
+
+	db.all(`SELECT * FROM admin WHERE username = '${username}' AND password = '${password}'`, (err, rows) => {
+		if (rows.length > 0) {
+			res.send({admin: true});
+		}
+		else {
+			res.send({admin: false});
+		}
+	})
+})
+
+app.post('/api/users', (req, res) => {
+
+	// get all users from database
+	
+	db.all(`SELECT username FROM credentials`, (err, rows) => {
+		if (rows.length > 0) {
+			res.send(rows);
+		} else {
+			res.send({message: 'No data'});
+		}
+	})
+})
+
+app.post('/api/spotsflush', (req, res) => {
+
+	// set all isactive to true
+	
+	lotsdb.run(`UPDATE PARKING_LOT SET isactive = true`, (err) => {
+		if (err) {
+			res.send({message: 'Fail'});
+		} else {
+			res.send({message: 'Success'});
+		}
 	})
 })
 

@@ -93,18 +93,6 @@ function Home() {
 		    <div className="greeting">
 				{name != undefined ? <h2>Здравствуйте, {name}!</h2> : <h2>Здравствуйте!</h2>}
 			</div>
-			<div className="homeblock mt-3">
-				<label for="places">Выберите парковку</label>
-				<select onClick={handleParkingOptions} id="places" name="places" class="form-control-lg">
-					{places.map(place => (
-						<option>{place.address}</option>
-					))}
-				</select>
-				<label for="date">Выберите дату</label>
-				<input type="date" value={date} onChange={handleDateChange} id="date" name="date" class="form-control-lg" />
-				<label for="available" id="availablecheckboxtext">Только доступные</label>
-				<input type="checkbox" id="availablecheckbox" name="available" class="form-check-input" />
-			</div>
 
 		<div class="lots-container">
 			<div className="lots">

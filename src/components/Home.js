@@ -27,11 +27,10 @@ function Home() {
 				selectedLots: selectedLots,
 			}).then(res => {
 				console.log(res.data);
+				sessionStorage.setItem('selectedLots', JSON.stringify(selectedLots));
+				window.location.href = '/checkout';
 			})
-			alert("OK");
 		}
-		sessionStorage.setItem('selectedLots', JSON.stringify(selectedLots));
-		window.location.href = '/checkout';
 	}
 
 	function handleDateChange(e){

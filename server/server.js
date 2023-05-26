@@ -143,15 +143,17 @@ app.post('/api/payment', (req, res) => {
 	const selectedLots = req.body.selectedLots;
 	let isDataValid = true;
 
-	if (selectedLots.length === 0) {
+	if (selectedLots == null || selectedLots.length === 0) {
 		isDataValid = false;
 	}
 
-	for (let i = 0; i < selectedLots.length && isDataValid; i++) {
-		if (!selectedLots[i].match(/^[A-Z0-9]+$/)) {
-			console.log('Invalid value ' + selectedLots[i]);
-			isDataValid = false;
-			break;
+	if (isDataValid){
+		for (let i = 0; i < selectedLots.length && isDataValid; i++) {
+			if (!selectedLots[i].match(/^[A-Z0-9]+$/)) {
+				console.log('Invalid value ' + selectedLots[i]);
+				isDataValid = false;
+				break;
+			}
 		}
 	}
 
@@ -165,20 +167,20 @@ app.post('/api/payment', (req, res) => {
 			// check rows isactive column
 			for (let i = 0; i < rows.length; i++) {
 				if (!rows[i].isactive) {
-					res.send({message: 'Fail', data: []});
+					isDataValid = false;
 					break;
 				}
 			}
 		})
 
-		// execute sqldata2
-		lotsdb.run(sqldata2, (err) => {
-		})
 
-		lotsdb.run(sqldata3, (err) => {
-		})
-
-		res.send({message: 'Success', data: []});
+		if (isDataValid) {
+			lotsdb.run(sqldata2, (err) => {})
+			lotsdb.run(sqldata3, (err) => {})
+			res.send({message: 'Success', data: []});
+		} else {
+			res.send({message: 'Fail', data: []});
+		}
 	} else {
 		res.send({message: 'Fail', data: []});
 	}
@@ -230,6 +232,18 @@ app.post('/api/spotsflush', (req, res) => {
 	// set all isactive to true
 	
 	lotsdb.run(`UPDATE PARKING_LOT SET isactive = true`, (err) => {
+		if (err) {
+			res.send({message: 'Fail'});
+		} else {
+			res.send({message: 'Success'});
+		}
+	})
+})
+
+app.post('/api/deleteUser', (req, res) => {
+	const username = req.body.name;
+
+	db.run(`DELETE FROM credentials WHERE username = '${username}'`, (err) => {
 		if (err) {
 			res.send({message: 'Fail'});
 		} else {

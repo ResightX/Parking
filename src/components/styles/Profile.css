@@ -26,6 +26,7 @@
 	width: 75%;
 	background-color: #232634;
 	color: #c6d0f5;
+	padding: 1.5rem;
 }
 
 .nav-tabs{
@@ -41,10 +42,29 @@
 
 .order-record {
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	padding: 1rem;
 	width: 100%;
-	color: white;
-	border: 1px solid white;
+	color: #c6d0f5;
+	border: 1px solid #414559;
 	border-radius: 10px;
+}
+
+
+.profile-default-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.profile-default {
+	width: 8rem;
+	height: 8rem;
+	background-color: yellow;
+	border-radius: 50%;
+	font-size: 5rem;
+}
+
+.profile-default {
+	padding: 5px;
 }

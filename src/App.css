@@ -82,6 +82,10 @@
 	bottom: 0;
 }
 
+#root {
+	height: 150vh;
+}
+
 .footer .row {
 	text-align: center;
 }

@@ -97,7 +97,7 @@ function Register(){
 					<Controller
 					  name="username"
 					  control={control}
-					  rules={{ required: true, minLength: 7, maxLength: 20 }}
+					  rules={{ required: true, minLength: 4, maxLength: 20 }}
 					  render={({ field }) => (
 						<div className="form-outline">
 						  <input

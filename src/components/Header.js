@@ -36,7 +36,7 @@ function Header(){
 
           <Nav className="me-auto">
             <Link to="/" className="ms-1">Главная</Link>
-            <Link to="/map" className="ms-3">Карта</Link>
+            <Link to="/about" className="ms-3">О нас</Link>
           </Nav>
 
           <Nav className="me-right">

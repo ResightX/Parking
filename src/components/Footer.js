@@ -15,16 +15,6 @@ function Footer(){
 						<FontAwesomeIcon className="smicons" icon={faVk}/>
 						<FontAwesomeIcon className="smicons" icon={faTelegram}/>
 					</Col>
-					<Col>
-						<p>Hello wolrd</p>
-						<p>Hello wolrd</p>
-						<p>Hello wolrd</p>
-					</Col>
-					<Col>
-						<p>Hello wolrd</p>
-						<p>Hello wolrd</p>
-						<p>Hello wolrd</p>
-					</Col>
 				</Row>
 			</Container>
 		</div>

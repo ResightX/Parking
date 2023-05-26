@@ -17,6 +17,8 @@ import Checkout from './components/Checkout.js';
 import Account from './components/Account.js';
 import Admin from './components/Admin.js';
 import Map from './components/Map.js';
+import AboutUs from './components/AboutUs.js';
+
 
 
 function HeaderCondition(){
@@ -69,6 +71,7 @@ function App() {
 					  <Route path='profile' element={ <AccountCondition /> }></Route>	
 					  <Route path='admin' element={ <Admin /> }></Route>
 					  <Route path='map' element={ <Map /> }></Route>
+					  <Route path='about' element={ <AboutUs /> }></Route>
 					</Routes>
 			  </Container>
 		  </main>

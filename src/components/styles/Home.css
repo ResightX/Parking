@@ -71,16 +71,24 @@ main {
 	color: #232634;
 }
 
-.lots {
-	margin-top: 1rem;
-	display: flex;
-	flex-wrap: wrap;
+.lots-container {
+	border-radius: 5px;
+	background-color: #232634;
+	align-items: center;
 	justify-content: center;
+}
+
+.lot-items-container {
 	width: 100%;
 	height: 100%;
 	padding: 1rem;
-	background-color: #232634; 
-	border-radius: 5px;
+}
+
+.lots {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, 3rem);
+	justify-content: space-between;
+	grid-gap: 2px;
 }
 
 .activebtn {
@@ -105,4 +113,32 @@ main {
 
 .greeting {
 	color: #c6d0f5;
+}
+
+/* Instructions */
+
+.instructions-container {
+	background-color: #232634;
+	color: white;
+	min-height: 50px;
+	align-items: center;
+	display: flex;
+	color: #c6d0f5;
+	padding: 1rem;
+	border-radius: 5px;
+}
+
+.instructions {
+	font-size: 24px;
+}
+
+.infoicon {
+	float: left;
+	font-size: 32px;
+	margin-right: 1rem;
+}
+
+.loader-container {
+	display: flex;
+	justify-content: center;
 }

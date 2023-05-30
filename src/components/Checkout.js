@@ -2,14 +2,15 @@ import './styles/Checkout.css';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 import { useForm } from "react-hook-form";
+import React, { useEffect, useState } from 'react';
 
-const tarif = 200;
+let tariff = 0;
 
 function Item(e) {
 	return (
 		<>
 			<div className="item">
-			  <span className="price">{tarif}</span>
+			  <span className="price">{e.price}₽</span>
 			  <div className="item-name">{e.title}</div>
 			</div>
 		</>
@@ -18,6 +19,7 @@ function Item(e) {
 
 function Checkout(){
 	const { register, handleSubmit, formState: { errors } } = useForm();
+        const [tariff, setTariff] = useState(0);
 
 	const selectedLots = JSON.parse(sessionStorage.getItem('selectedLots'));
 	let total = 0;
@@ -27,18 +29,32 @@ function Checkout(){
 		console.log((selectedLots));
 	}
 
+        function getTariff(){
+          axios.post('http://localhost:3001/api/get_tariff', {
+
+          }).then(result => {
+            setTariff(result.data.tariff);
+            console.log(parseInt(result.data.tariff));
+          })
+        };
+
 	function cancelPayment(){
 		sessionStorage.clear();
 		window.location.href = '/';
 	}
 
 	function handlePayment(){
+
 	}
 
+        useEffect(() => {
+          getTariff();
+        }, [])
+
 	const onSubmit = (data) => {
-		axios.post('http://localhost:3001/api/payment', {
+		axios.post('http://localhost:3001/api/payment_request', {
 			selectedLots: selectedLots,
-			name: Cookies.get('AuthName')
+			username: Cookies.get('AuthName')
 		}).then(res => {
 			console.log(res);
 			sessionStorage.clear();
@@ -56,9 +72,11 @@ return (
           <div className="products">
             <h3 className="title">Оплата</h3>
             {selectedLots && selectedLots.map((e) => (
-              <Item title={e} />
+              <Item title={e} price={tariff} />
             ))}
             <div className="total">
+              <span>Итого</span>
+              <span className='float-end'>{tariff * selectedLots.length} ₽</span>
             </div>
           </div>
           <div className="card-details">

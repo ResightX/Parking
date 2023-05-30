@@ -3,7 +3,6 @@ import { Container } from 'react-bootstrap';
 import Dashboard from './Dashboard.js';
 import Cookies from 'js-cookie';
 import axios from 'axios';
-
 import './styles/Admin.css';
 
 function Admin (){

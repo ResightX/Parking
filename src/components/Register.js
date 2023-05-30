@@ -1,3 +1,4 @@
+import FloatingMessage from './FloatingMessage.js';
 import './styles/SignIn.css';
 import { useForm, Controller } from "react-hook-form";
 import axios from 'axios';
@@ -5,7 +6,8 @@ import { useRef } from  'react';
 import SignupLogo from '../images/logosignup.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' 
 import { faGoogle, faVk } from '@fortawesome/free-brands-svg-icons' 
-import { Link } from 'react-router-dom';;
+import { Link } from 'react-router-dom';import { render } from '@testing-library/react';
+;
 
 function Register(){
 	const userRef = useRef(null);
@@ -17,15 +19,17 @@ function Register(){
 		const username = data.username;
 		const password = data.password;
 
-		axios.post('http://localhost:3001/api/register', {
+		axios.post('http://localhost:3001/api/register_request', {
 			username: username,
-			password: password
+			password: password,
+			email: email
 		}).then((response) => {
 			if (response.data.registered) {
 				console.log('Вы успешно зарегистрировались');
 				window.location.href = '/signup';
 			} else {
 				alert('Регистрация не прошла');
+				render(<FloatingMessage message_type='fail' message_text='Регистрация не прошла' />)
 			}
 		})
 

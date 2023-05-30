@@ -6,31 +6,34 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import React, { useRef, useState } from 'react';
 import Cookie from 'js-cookie';
+import FloatingMessage from './FloatingMessage.js';
+import { render } from '@testing-library/react';
 
 function SignIn(){
-	const message = useRef();
+    const message = useRef();
 
-	const onFinish = (values) => {
-		values.preventDefault();
-		const username = values.target.username.value;
-		const password = values.target.password.value;
+    const onFinish = (values) => {
+        values.preventDefault();
+        const username = values.target.username.value;
+        const password = values.target.password.value;
 
-		axios.post('http://localhost:3001/validate', {
-			username: username,
-			password: password
-		}).then((response) => {
-			if (response.data.validated === true) {
-				console.log('Login Successful');
-				message.current.style.display = 'none';
-				// redirect to home page using router
-				Cookie.set('AuthName', username);
-				window.location.href = '/';
-			} else {
-				console.log('Login Failed');
-				message.current.style.display = 'block';
-			}
-		})
-	}
+        axios.post('http://localhost:3001/api/login_request', {
+            username: username,
+            password: password
+        }).then((response) => {
+            if (response.data.validated === true) {
+                    console.log('Login Successful');
+                    message.current.style.display = 'none';
+                    // redirect to home page using router
+                    Cookie.set('AuthName', username);
+                    window.location.href = '/';
+                    render(<FloatingMessage message_type='success' message_text={`Добро пожаловать, ${username}!`} />)
+            } else {
+                    console.log('Login Failed');
+                    render(<FloatingMessage message_type='fail' message_text='Неправильное имя пользователя или пароль!' />)
+            }
+        })
+    }
 
 	return (
 <section className="">
@@ -55,7 +58,7 @@ function SignIn(){
                   <h5 className="fw-normal mb-3 pb-3 text-center" >Войдите в ваш аккаунт</h5>
 
                   <div className="form-outline mb-4">
-					<div className="hiddenmessage alert alert-danger" ref={message} role="alert">Неправильное имя пользователя или пароль!</div>
+					<div className="hiddenmessage alert alert-danger text-center" ref={message} role="alert">Неправильное имя пользователя или пароль!</div>
                     <input type="text" name="username" id="form2Example17" className="form-control form-control-lg" />
                     <label className="form-label" htmlFor="form2Example17">E-mail адрес</label>
                   </div>

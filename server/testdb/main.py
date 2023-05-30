@@ -1,9 +1,10 @@
 import sqlite3
 import random
 
+
 def main():
     # Connect to the database
-    conn = sqlite3.connect('database.db')
+    conn = sqlite3.connect('./bruh.db')
     cur = conn.cursor()
 
     # check if table exists
@@ -27,5 +28,16 @@ def main():
     conn.commit()
 
 
+def fill_data():
+    conn = sqlite3.connect('./fixdb.db')
+    cur = conn.cursor()
+
+    for i in range(75):
+        cur.execute('INSERT INTO PARKING_SPOTS (number, is_available) VALUES (?, ?)', (str(i) + 'A', random.choice([True, False])))
+        cur.execute('INSERT INTO PARKING_SPOTS (number, is_available) VALUES (?, ?)', (str(i) + 'B', random.choice([True, False])))
+
+    conn.commit()
+
+
 if __name__ == '__main__':
-    main()
+    fill_data()

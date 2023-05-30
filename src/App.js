@@ -15,11 +15,10 @@ import Register from './components/Register.js';
 import Test from './components/Test.js';
 import Checkout from './components/Checkout.js';
 import Account from './components/Account.js';
-import Admin from './components/Admin.js';
-import Map from './components/Map.js';
+import Admin from './components/Admin.js'; import Map from './components/Map.js';
 import AboutUs from './components/AboutUs.js';
 
-
+import NewTest from './components/exprtest.js';
 
 function HeaderCondition(){
 	if (window.location.pathname !== "/admin" && window.location.pathname !== "/dashboard")
@@ -57,31 +56,30 @@ function App() {
   const [auth, setAuth] = useState(false);
 
   return (
-	  <BrowserRouter>
-		  <HeaderCondition />
+	<BrowserRouter>
+		<HeaderCondition />
 
-		  <main>
-			  <Container>
+			<main>
+				<Container>
 					<Routes>
-					  <Route path='/' index element={ <Home /> }></Route>
-					  <Route path='signup' element={ <SingIn className="signinform" /> }></Route>
-					  <Route path='register' element={ <Register className="registerform" /> }></Route>
-					  <Route path='test' element={ <Test /> }></Route>
-					  <Route path='checkout' element={ Cookies.get("AuthName") !== undefined ? <Checkout /> : <SingIn className="signinform" /> }></Route>
-					  <Route path='profile' element={ <AccountCondition /> }></Route>	
-					  <Route path='admin' element={ <Admin /> }></Route>
-					  <Route path='map' element={ <Map /> }></Route>
-					  <Route path='about' element={ <AboutUs /> }></Route>
+						<Route path='/' index element={ <Home /> }></Route>
+						<Route path='signup' element={ <SingIn className="signinform" /> }></Route>
+						<Route path='register' element={ <Register className="registerform" /> }></Route>
+						<Route path='test' element={ <Test /> }></Route>
+						<Route path='checkout' element={ Cookies.get("AuthName") !== undefined ? <Checkout /> : <SingIn className="signinform" /> }></Route>
+						<Route path='profile' element={ <AccountCondition /> }></Route>	
+						<Route path='admin' element={ <Admin /> }></Route>
+						<Route path='map' element={ <Map /> }></Route>
+						<Route path='about' element={ <AboutUs /> }></Route>
+						<Route path='newtest' element={ <NewTest /> }></Route>
 					</Routes>
-			  </Container>
-		  </main>
+				</Container>
+			</main>
 
+		<FooterCondition />
 
-
-		  <FooterCondition />
-
-	  </BrowserRouter>
-  );
+	</BrowserRouter>
+	);
 }
 
 export default App;
